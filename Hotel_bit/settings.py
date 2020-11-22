@@ -137,8 +137,8 @@ LOGIN_URL = '/usuario/login'
 
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = ('o.pradenas.l@gmail.com')
-EMAIL_HOST_PASSWORD = ('enas8011')
+EMAIL_HOST_USER = ('')
+EMAIL_HOST_PASSWORD = ('')
 EMAIL_USE_TLS = True
 
 
