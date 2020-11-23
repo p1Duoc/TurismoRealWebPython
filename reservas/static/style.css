@@ -288,7 +288,7 @@ input:focus {
   z-index: 9999999;
   top: 0;
   left: 0;
-  background-color: #1cc3b2;
+  background-color: #ff8c17;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -388,7 +388,7 @@ input:focus {
   width: 40px;
   height: 40px;
   bottom: 40px;
-  background-color: #1cc3b2;
+  background-color: #ff8c17;
   color: #ffffff;
   text-align: center;
   -webkit-transition-duration: 500ms;
@@ -422,7 +422,7 @@ input:focus {
   padding: 0 40px;
   text-align: center;
   text-transform: capitalize;
-  background-color: #1cc3b2;
+  background-color: #ff8c17;
   color: #ffffff;
   border: none;
   border-radius: 2px;
@@ -434,7 +434,7 @@ input:focus {
     -webkit-box-shadow: 0 2px 40px 8px rgba(15, 15, 15, 0.15);
     box-shadow: 0 2px 40px 8px rgba(15, 15, 15, 0.15);
     background-color: #ffffff;
-    color: #1cc3b2; }
+    color: #ff8c17; }
   .roberto-btn.btn-2 {
     min-width: 180px;
     height: 50px;
@@ -476,7 +476,7 @@ input:focus {
     z-index: 1;
     width: 100%;
     height: 0;
-    background-color: #1cc3b2; }
+    background-color: #ff8c17; }
     .header-area .search-form.search-form-active {
       height: 80px;
       z-index: 99999999; }
@@ -511,7 +511,7 @@ input:focus {
   z-index: 1;
   width: 100%;
   height: 50px;
-  background-color: #0e2737; }
+  background-color: #8a8a8a; }
   .top-header-area .top-header-content {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -530,7 +530,7 @@ input:focus {
         margin-right: 0; }
       .top-header-area .top-header-content > a i {
         padding-right: 5px;
-        color: #1cc3b2; }
+        color: #ff8b17; }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .top-header-area .top-header-content > a {
           margin-right: 30px; } }
@@ -557,7 +557,7 @@ input:focus {
         .top-header-area .top-header-content .top-social-area a {
           margin-right: 15px; } }
       .top-header-area .top-header-content .top-social-area a:hover, .top-header-area .top-header-content .top-social-area a:focus {
-        color: #1cc3b2; }
+        color: #ff8c17; }
 
 .classy-nav-container {
   background-color: transparent;
@@ -656,7 +656,7 @@ input:focus {
   background-color: #ffffff; }
   .main-header-area .book-now-btn a {
     padding: 0 30px;
-    background-color: #1cc3b2;
+    background-color: #ff8b17;
     height: 80px;
     line-height: 80px;
     text-align: center;
@@ -675,7 +675,7 @@ input:focus {
         line-height: 50px;
         border-radius: 30px; } }
     .main-header-area .book-now-btn a:hover, .main-header-area .book-now-btn a:focus {
-      background-color: #2a303b;
+      background-color: #ff8c17;
       color: #ffffff; }
   .main-header-area .search-btn {
     cursor: pointer;
@@ -689,7 +689,7 @@ input:focus {
       .main-header-area .search-btn {
         padding: 30px 0; } }
     .main-header-area .search-btn:hover, .main-header-area .search-btn:focus {
-      color: #1cc3b2; }
+      color: #ff8c17; }
 
 /* :: 8.0 Hero Area CSS */
 .welcome-area {

@@ -12,15 +12,15 @@ precio_pension = (
 )
 
 pension = (
-	('completa', 'completa'),
-	('media', 'media'),
-	('desayuno', 'desayuno'),
-	('nada', 'nada')
+	('Completa', 'Completa'),
+	('Media', 'Media'),
+	('Desayuno', 'Desayuno'),
+	('Nada', 'Nada')
 )
 
 tipo_alojamiento = (
-	('doble', 'doble'),
-	('individual', 'individual')
+	('Doble', 'Doble'),
+	('Individual', 'Individual')
 )
 
 precio_alojamiento = (
@@ -46,9 +46,9 @@ tipo_de_pago = (
 
 status_payment = (
 
-	('Aprovado', 'Aprovado'),
+	('Aprobado', 'Aprobado'),
 	('Pendiente', 'Pendiente'),
-	('Fallo', 'Fallo'),
+	('Error', 'Error'),
 	('Cancelado', 'Cancelado'),
 	('Activa', 'Activa'),
 	('Finalizada', 'Finalizada')
@@ -63,8 +63,8 @@ class Tipo_pension(models.Model):
 		return self.tipo_pension
 
 	class Meta:
-		verbose_name = 'Tipo Pension'
-		verbose_name_plural = 'Tipo Pensiones'
+		verbose_name = 'Tipo de Pension'
+		verbose_name_plural = 'Tipos de Pensiones'
 
 class Precio_pension(models.Model):
 	precio = models.DecimalField(choices=precio_pension, max_digits=5, decimal_places=2)
@@ -77,22 +77,62 @@ class Precio_pension(models.Model):
 		verbose_name = 'Precio Pension'
 		verbose_name_plural = 'Precio Pensiones'
 
-class Habitaciones(models.Model):
-	descripcion = models.CharField(max_length=150)
-	image = models.ImageField(upload_to='habitaciones/')
-	num_habitacion = models.IntegerField(default=0)
-	baños = models.IntegerField(default=0)
-	garaje = models.IntegerField(default=0)
-	camas = models.IntegerField(default=0)
-	capacidad = models.IntegerField(default=1)
-	cantidad = models.IntegerField(default=1)
-	
+class Comuna(models.Model):
+	Comuna = models.CharField(max_length=100)
+	Cuidad = models.CharField(max_length=100)
+
 	def __str__(self):
-		return self.descripcion
+		return self.Comuna
 
 	class Meta:
-		verbose_name = 'Habitacion'
-		verbose_name_plural = 'Habitaciones'
+		verbose_name = 'Comuna'
+		verbose_name_plural = 'Comunas'
+
+class Habitaciones(models.Model):
+	Dirección_Departamento = models.CharField(max_length=100, blank=True, null=True)
+	Número	= models.IntegerField(default=0, blank=True, null=True)
+	Número_Departamento = models.IntegerField( blank=True, null=True)
+	Precio = models.IntegerField( blank=True, null=True)
+	Fecha_Compra = models.DateField(default=datetime.date.today)
+	idcomuna = models.ForeignKey(Comuna, on_delete=models.CASCADE,  blank=True, null=True)
+	Descripción = models.CharField(max_length=150,  blank=True, null=True)
+	#image = models.ImageField(upload_to='habitaciones/')
+	#num_habitacion = models.IntegerField(default=0)
+	#baños = models.IntegerField(default=0)
+	#garaje = models.IntegerField(default=0)
+	#camas = models.IntegerField(default=0)
+	#capacidad = models.IntegerField(default=1)
+	#cantidad = models.IntegerField(default=1)
+	#tele = models.IntegerField(default=1)
+
+	def __str__(self):
+		return self.Descripción
+
+	class Meta:
+		verbose_name = 'Departamento'
+		verbose_name_plural = 'Departamentos'
+
+class ProductosDeptos(models.Model):
+	pnombre = models.CharField(max_length=20, blank=True, null=True)
+	pdescripcion = models.CharField(max_length=30, blank=True, null=True)
+	pvalor = models.IntegerField(default=0)
+
+	def __str__(self):
+		return self.pdescripcion
+
+	class Meta:
+		verbose_name = 'Producto'
+		verbose_name_plural = 'Productos'
+
+class DetalleDepto(models.Model):
+	qprod = models.IntegerField(default=0)
+	iddepto = models.ForeignKey(Habitaciones, on_delete=models.CASCADE, blank=True, null=True)
+	idproductos = models.ForeignKey(ProductosDeptos, on_delete=models.CASCADE, blank=True, null=True)
+
+	class Meta:
+		verbose_name = 'Detalle Departamento'
+		verbose_name_plural = 'Detalle Departamentos'
+
 
 class Tipo_alojamiento(models.Model):
 	descripcion = models.CharField(choices=tipo_alojamiento, max_length=50)
@@ -168,7 +208,7 @@ class CantidadReservas(models.Model):
 
 class Habitacion(models.Model):
     nombre = models.CharField("nombre habitacion", max_length=50)
-    cantidad_habitaciones = models.IntegerField('cantida de habitaciones', default=10)
+    cantidad_habitaciones = models.IntegerField('cantidad de habitaciones', default=10)
     precio = models.IntegerField("precio habitacion")
     capacidad = models.IntegerField("capacidad de usuarios")
     disponible = models.BooleanField("esta disponible", default=True)
