@@ -86,6 +86,8 @@ class Habitaciones(models.Model):
 	camas = models.IntegerField(default=0)
 	capacidad = models.IntegerField(default=1)
 	cantidad = models.IntegerField(default=1)
+	tele = models.IntegerField(default=1)
+
 	
 	def __str__(self):
 		return self.descripcion
