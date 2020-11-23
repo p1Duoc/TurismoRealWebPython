@@ -511,7 +511,7 @@ input:focus {
   z-index: 1;
   width: 100%;
   height: 50px;
-  background-color: #0e2737; }
+  background-color: #666666; }
   .top-header-area .top-header-content {
     display: -webkit-box;
     display: -ms-flexbox;
