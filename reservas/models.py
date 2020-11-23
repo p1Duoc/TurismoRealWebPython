@@ -5,10 +5,10 @@ import datetime
 # Create your models here.
 
 precio_pension = (
-	(150.00, 150.00),
-	(100.00, 100.00),
-	(60.00, 60.00),
-	(0.00, 0.00)
+	(150.000, 150.000),
+	(100.000, 100.000),
+	(60.000, 60.000),
+	(0.000, 0.000)
 )
 
 pension = (
@@ -79,7 +79,7 @@ class Precio_pension(models.Model):
 
 class Comuna(models.Model):
 	Comuna = models.CharField(max_length=100)
-	Cuidad = models.CharField(max_length=100)
+	Ciudad = models.CharField(max_length=100)
 
 	def __str__(self):
 		return self.Comuna
@@ -113,12 +113,12 @@ class Habitaciones(models.Model):
 		verbose_name_plural = 'Departamentos'
 
 class ProductosDeptos(models.Model):
-	pnombre = models.CharField(max_length=20, blank=True, null=True)
-	pdescripcion = models.CharField(max_length=30, blank=True, null=True)
-	pvalor = models.IntegerField(default=0)
+	Nombre = models.CharField(max_length=20, blank=True, null=True)
+	Descripción = models.CharField(max_length=30, blank=True, null=True)
+	Valor = models.IntegerField(default=0)
 
 	def __str__(self):
-		return self.pdescripcion
+		return self.Descripción
 
 	class Meta:
 		verbose_name = 'Producto'
@@ -128,6 +128,8 @@ class DetalleDepto(models.Model):
 	qprod = models.IntegerField(default=0)
 	iddepto = models.ForeignKey(Habitaciones, on_delete=models.CASCADE, blank=True, null=True)
 	idproductos = models.ForeignKey(ProductosDeptos, on_delete=models.CASCADE, blank=True, null=True)
+
+
 
 	class Meta:
 		verbose_name = 'Detalle Departamento'
