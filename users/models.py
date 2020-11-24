@@ -9,4 +9,6 @@ class Profile(models.Model):
     phone = models.CharField(max_length=12, blank=True)
     ci = models.CharField(max_length=6, blank=True)
 
+def __str__(self):
+    return self.user
 

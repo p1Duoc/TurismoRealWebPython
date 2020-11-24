@@ -9,5 +9,5 @@ class contacto(models.Model):
     email = models.EmailField()
     message = models.TextField()
     
-    def __str__(self):
-        return f'Nombre: {self.first_name} {self.last_name} ---------- Mensaje -------------> {self.message}'
+   # def __str__(self):
+     #   return f'Nombre: {self.first_name} {self.last_name} ---------- Mensaje -------------> {self.message}'

@@ -80,14 +80,17 @@ WSGI_APPLICATION = 'Hotel_bit.wsgi.application'
 
 DATABASES = {
     'default': {
-     #   'ENGINE':   'django.db.backends.oracle',
-     #   'NAME':     'docker.linde-hl.cl/xe',
-     #   'USER':     'u_portafolio',
-     #   'PASSWORD': 'u_portafoliol',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE':   'django.db.backends.oracle',
+        'HOST':     'docker.linde-hl.cl',
+        'NAME':     'xe',
+        'USER':     'u_portafolio',
+        'PASSWORD': 'u_portafolio',
+        'PORT':     '1521'
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 
 # Password validation
@@ -137,10 +140,9 @@ LOGIN_URL = '/usuario/login'
 
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = ('')
-EMAIL_HOST_PASSWORD = ('')
+EMAIL_HOST_USER = ('onuxchile@gmail.com')
+EMAIL_HOST_PASSWORD = ('Onxprovi234#')
 EMAIL_USE_TLS = True
-
 
 
 
