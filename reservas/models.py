@@ -212,9 +212,6 @@ class CantidadReservas(models.Model):
 
 	def __str__(self):
 		return str(self.reserva_habitacion)
-	
-
-# Los modelos de arriba los agregue hoy
 
 
 

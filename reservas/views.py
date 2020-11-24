@@ -181,7 +181,7 @@ def habitacion_detail(request):
 	#Función para ver en datalle la habitación seleccionada
 	#Creamos las variables que recogen todas las habitaciones en base de datos, reservas,
 	# y reservas de habitaciones
-	habitacion_detail = Habitaciones.objects.get(descripcion=request.POST['nombre_habitacion'])
+	habitacion_detail = Habitaciones.objects.get(Descripción=request.POST['nombre_habitacion'])
 	reserva = Reserva.objects.all()
 	reservas_habitacion = Reservas_habitacion.objects.all()
 	template = 'pago.html'
