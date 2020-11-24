@@ -296,7 +296,7 @@ def habitacion_detail(request):
 			
 			#Guardamos la reserva de habitación en la base de datos
 
-			#reserva_habitacion.save()
+			reserva_habitacion.save()
 
 			# pasamos info al template para procesar el pago
 
