@@ -6,7 +6,7 @@ from .models import Habitacion, Reserva_habitacion, Habitaciones, Reserva, Canti
 from datetime import date, datetime, timedelta
 from _datetime import timedelta
 from .models import Reserva, Reservas_habitacion, Tipo_alojamiento
-from asyncio.sslproto import ssl
+import ssl
 import smtplib
 from django.http import request
 from django.db.models import Q
@@ -262,8 +262,8 @@ def habitacion_detail(request):
 			smtp_server = 'smtp.gmail.com'
 			port = 465
 
-			sender = 'daniferpro3@gmail.com'
-			password = 'Daniferpro2021'
+			sender = ''
+			password = ''
 
 			reciever = user1.email
 
@@ -286,9 +286,9 @@ def habitacion_detail(request):
 
 			context = ssl.create_default_context()
 
-			with smtplib.SMTP_SSL(smtp_server, port, context = context) as server:
-				server.login(sender, password)
-				server.sendmail(sender, reciever, message, )
+			#with smtplib.SMTP_SSL(smtp_server, port, context = context) as server:
+				#server.login(sender, password)
+				#server.sendmail(sender, reciever, message, )
 
 			###############################################################
 			#                 FIN ENVIO DE EMAIL AL USUARIO               #
@@ -296,7 +296,7 @@ def habitacion_detail(request):
 			
 			#Guardamos la reserva de habitación en la base de datos
 
-			reserva_habitacion.save()
+			#reserva_habitacion.save()
 
 			# pasamos info al template para procesar el pago
 
