@@ -15,7 +15,7 @@ admin.site.register(CantidadReservas)
 #admin.site.register(ProductosDeptos)
 #admin.site.register(DetalleDepto)
 #admin.site.register(Comuna)
-
+admin.site.register(Habitacion)
 
 
 @admin.register(Habitaciones)

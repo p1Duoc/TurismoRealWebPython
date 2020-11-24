@@ -88,6 +88,18 @@ class Comuna(models.Model):
 		verbose_name = 'Comuna'
 		verbose_name_plural = 'Comunas'
 
+
+class Habitacion(models.Model):
+	nombre = models.CharField("nombre habitacion", max_length=50)
+	cantidad_habitaciones = models.IntegerField('cantidad de habitaciones', default=10)
+	precio = models.IntegerField("precio habitacion")
+	capacidad = models.IntegerField("capacidad de usuarios")
+	disponible = models.BooleanField("esta disponible", default=True)
+
+	def __str__(self):
+		return self.nombre
+
+
 class Habitaciones(models.Model):
 	Dirección_Departamento = models.CharField(max_length=100, blank=True, null=True)
 	Número	= models.IntegerField(default=0, blank=True, null=True)
@@ -96,13 +108,13 @@ class Habitaciones(models.Model):
 	Fecha_Compra = models.DateField(default=datetime.date.today)
 	idcomuna = models.ForeignKey(Comuna, on_delete=models.CASCADE,  blank=True, null=True)
 	Descripción = models.CharField(max_length=150,  blank=True, null=True)
-	#image = models.ImageField(upload_to='habitaciones/')
+	image = models.ImageField(upload_to='habitaciones/', blank=True, null=True)
 	#num_habitacion = models.IntegerField(default=0)
 	#baños = models.IntegerField(default=0)
 	#garaje = models.IntegerField(default=0)
 	#camas = models.IntegerField(default=0)
-	#capacidad = models.IntegerField(default=1)
-	#cantidad = models.IntegerField(default=1)
+	capacidad = models.IntegerField(default=1)
+	cantidad = models.IntegerField(default=1)
 	#tele = models.IntegerField(default=1)
 
 	def __str__(self):
@@ -128,8 +140,6 @@ class DetalleDepto(models.Model):
 	qprod = models.IntegerField(default=0)
 	iddepto = models.ForeignKey(Habitaciones, on_delete=models.CASCADE, blank=True, null=True)
 	idproductos = models.ForeignKey(ProductosDeptos, on_delete=models.CASCADE, blank=True, null=True)
-
-
 
 	class Meta:
 		verbose_name = 'Detalle Departamento'
@@ -208,17 +218,7 @@ class CantidadReservas(models.Model):
 # Los modelos de arriba los agregue hoy
 
 
-class Habitacion(models.Model):
-    nombre = models.CharField("nombre habitacion", max_length=50)
-    cantidad_habitaciones = models.IntegerField('cantidad de habitaciones', default=10)
-    precio = models.IntegerField("precio habitacion")
-    capacidad = models.IntegerField("capacidad de usuarios")
-    disponible = models.BooleanField("esta disponible", default=True)
-    
-  
-    def __str__(self):
-        return self.nombre
-    
+
 class Reserva_habitacion(models.Model):
     Nombre_usuario = models.CharField("Nombre usuario" , max_length=200, blank=False, null=False)
     Numero_Personas = models.IntegerField("Cantidad de Personas", blank=False, null=False)
