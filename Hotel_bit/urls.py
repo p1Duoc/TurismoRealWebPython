@@ -35,7 +35,11 @@ urlpatterns = [
     path('habitaciones/', views.habitaciones), #añadi las url habitaciones
     path('galeria/', views.galeria), #añadi las url galeria
     path('sobre_nosotros/', views.sobre_nosotros), #añadi las url sobre_nosotros
-    path('habitacion_vip/', views.habitacion_vip), #añadi las url habitacion_vip
+    path('Pucon/', views.Departamento_pucon), #añadi las url habitacion_vip
+    path('La_Serena/', views.Departamento_laserena), #añadi las url habitacion_vip
+    path('Viña_del_Mar/', views.Departamento_viñadelmar), #añadi las url habitacion_vip
+    path('Puerto_Varas/', views.Departamento_puertovaras), #añadi las url habitacion_vip
+    path('Iquique/', views.Departamento_iquique), #añadi las url habitacion_vip
     path('login/', login), #añadi las url login
     path('usuario/', include('users.urls')), #añadi las urls que tendrá el sistema de reservas en un path solo 'reservas/'
     path('reservar/', include('reservas.urls')), #añadi las urls que tendrá el sistema de reservas en un path solo 'users/'

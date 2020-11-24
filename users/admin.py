@@ -7,5 +7,3 @@ admin.site.register(Profile)
 admin.site.site_header = "Turismo Real - Sistema de Arriendos"
 admin.site.site_title = "Portal Administración - Turismo Real"
 admin.site.index_title = "Bienvenidos al portal de administración"
-
-

@@ -42,11 +42,30 @@ def sobre_nosotros(request):
     return render (request, template, {'form': NewsletterForm,})
 
 
-def habitacion_vip(request):
+def Departamento_pucon(request):
     template = "single-room.html"
     Newsletter(request)
     return render (request, template, {'form': NewsletterForm,})
 
+def Departamento_laserena(request):
+    template = "single-room_1.html"
+    Newsletter(request)
+    return render (request, template, {'form': NewsletterForm,})
+
+def Departamento_viñadelmar(request):
+    template = "single-room_2.html"
+    Newsletter(request)
+    return render (request, template, {'form': NewsletterForm,})
+
+def Departamento_puertovaras(request):
+    template = "single-room_3.html"
+    Newsletter(request)
+    return render (request, template, {'form': NewsletterForm,})
+
+def Departamento_iquique(request):
+    template = "single-room_4.html"
+    Newsletter(request)
+    return render (request, template, {'form': NewsletterForm,})
 
 
 
