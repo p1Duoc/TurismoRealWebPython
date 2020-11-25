@@ -19,12 +19,14 @@ def contacto(request):
                 form.save()               
             
             return redirect ('www.emol.com')
+               
+
     else:
         form = ContactoForm
 
     context = {
-    'form': form,
+        'form': form,
     }
-    return render (request, template, context)
+    return render(request, template, context)
 
 
