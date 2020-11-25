@@ -1,5 +1,3 @@
-from django.contrib import messages
-from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from .forms import ContactoForm
 from newsletters.forms import NewsletterForm
@@ -18,12 +16,11 @@ def contacto(request):
             form = NewsletterForm(request.POST)
 
             if form.is_valid():
-                instance = form.save(commit=False)
-                instance.save()
-                messages.success(request, "Enviado Correctamente")
-                return redirect("main:homepage")
-            else:
-                messages.error(request,"No enviado")
+                form.save()               
+            
+            return redirect ('www.emol.com')
+               
+
     else:
         form = ContactoForm
 
