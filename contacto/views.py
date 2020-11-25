@@ -27,28 +27,3 @@ def contacto(request):
     return render(request, template, context)
 
 
-#def thanks(request):
-    #    template = "thanks.html"
-
-    #    if request.method == "POST":
-    #        form = ContactoForm(request.POST)
-
-    #        if form.is_valid():
-    #        form.save()
-
-    #    if request.method == "POST":
-    #        form = NewsletterForm(request.POST)
-
-    #            if form.is_valid():
-    #            form.save()
-
-
-    #else:
-    #    form = ContactoForm
-
-    #context = {
-    #'form': form,
-    #}
-    #return render (request, template, context)
-
-

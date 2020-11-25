@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import logout as do_logout
 from django.shortcuts import render, redirect
+
+from contacto.forms import ContactoForm
 from newsletters.forms import NewsletterForm
 from newsletters.views import Newsletter
 
@@ -10,7 +12,6 @@ def home(request):
     template = "index.html"
     Newsletter(request)
     return render (request, template, {'form': NewsletterForm,})
-
 
 def habitaciones(request):
     template = "room.html"
