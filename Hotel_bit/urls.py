@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from . import views
 from users.views import login, registro, logout, ver_perfil
+
 urlpatterns = [
 
     
@@ -28,8 +29,6 @@ urlpatterns = [
     # path('logout', views.logout),
     
     path('', views.home),
-    
-
     path('admin/', admin.site.urls),
     path('home/', views.home),
     path('habitaciones/', views.habitaciones),
@@ -48,7 +47,8 @@ urlpatterns = [
     path('perfil/', ver_perfil),
     path('logout/', logout),
     path('comentarios/', include('comentarios.urls')),
-    
+    path('thanks/', views.thanks),
+        
 ]
 if settings.DEBUG:
     from django.conf.urls.static import static

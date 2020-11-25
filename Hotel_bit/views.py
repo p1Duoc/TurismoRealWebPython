@@ -87,6 +87,10 @@ def registro(request):
     }
     return render (request, template, context)
 
-    def logout(request):
-        do_logout(request)
-        return redirect('/')
+def logout(request):
+    do_logout(request)
+    return redirect('/')
+
+def thanks(request):
+    template = "thanks.html"
+    return render (request, template, {})
