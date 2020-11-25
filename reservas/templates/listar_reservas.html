@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {%block title%} Hotel BIT | Mis Reservas {% endblock title%} {% block nombre_usuario %} {% if user.is_autenticate %}
+{% extends 'base.html' %} {%block title%} Turismo Real| Mis Reservas {% endblock title%} {% block nombre_usuario %} {% if user.is_autenticate %}
 <span>hola username</span> {% else %}
 <span>No has iniciado sesión</span> {% endif %} {% endblock nombre_usuario %} {% block content %}
 <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(../static/img/bg-img/16.jpg);">
@@ -20,7 +20,7 @@
 </div>
 {% endblock content %} {% block habitaciones %}
 
-<h2> Habitaciones Disponibles para ti</h2>
+<h2> Departamentos Disponibles para ti</h2>
 
 {% endblock habitaciones %} {% block habitaciones_slide %}
 
@@ -34,7 +34,8 @@
                 <h2>No tienes ningua Reserva Actualmente. ¡ Qué Esperas !</h2>
 
                 <br>
-                <a class="btn roberto-btn mb-50" href=" ../home ">¡ RESERVA YA !</a> {% endif %} {% for cuarto in reservas %}
+                <a class="btn roberto-btn mb-50" href=" ../home ">¡ PUEDES RESERVAR AHORA!</a> {% endif %}
+                {% for cuarto in reservas %}
 
                 <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms">
                     <!-- Room Thumbnail -->

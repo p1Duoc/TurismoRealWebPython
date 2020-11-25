@@ -26,27 +26,27 @@ urlpatterns = [
     # path('login', views.login),
     # path('logout', views.logout),
     
-    # cambie los Path de login y registro por el include de abajo 
-    path('', views.home), #añadi las url home de inicio
+    path('', views.home),
     
 
     path('admin/', admin.site.urls),
-    path('home/', views.home), #añadi las url home
-    path('habitaciones/', views.habitaciones), #añadi las url habitaciones
-    path('galeria/', views.galeria), #añadi las url galeria
-    path('sobre_nosotros/', views.sobre_nosotros), #añadi las url sobre_nosotros
-    path('Pucon/', views.Departamento_pucon), #añadi las url habitacion_vip
-    path('La_Serena/', views.Departamento_laserena), #añadi las url habitacion_vip
-    path('Viña_del_Mar/', views.Departamento_viñadelmar), #añadi las url habitacion_vip
-    path('Puerto_Varas/', views.Departamento_puertovaras), #añadi las url habitacion_vip
-    path('Iquique/', views.Departamento_iquique), #añadi las url habitacion_vip
-    path('login/', login), #añadi las url login
-    path('usuario/', include('users.urls')), #añadi las urls que tendrá el sistema de reservas en un path solo 'reservas/'
-    path('reservar/', include('reservas.urls')), #añadi las urls que tendrá el sistema de reservas en un path solo 'users/'
-    path('contacto/', include('contacto.urls')), #añadi las urls que tendrá el sistema de reservas en un path solo 'contacto/'
+    path('home/', views.home),
+    path('habitaciones/', views.habitaciones),
+    path('galeria/', views.galeria),
+    path('sobre_nosotros/', views.sobre_nosotros),
+    path('Pucon/', views.Departamento_pucon),
+    path('La_Serena/', views.Departamento_laserena),
+    path('Viña_del_Mar/', views.Departamento_viñadelmar),
+    path('Puerto_Varas/', views.Departamento_puertovaras),
+    path('Iquique/', views.Departamento_iquique),
+    path('login/', login),
+    path('usuario/', include('users.urls')),
+    path('reservar/', include('reservas.urls')),
+    path('contacto/', include('contacto.urls')),
+#    path('thanks/', include('thanks.urls')),
     path('registro/', registro),
     path('perfil/', ver_perfil),
     path('logout/', logout),
-    path('comentarios/', include('comentarios.urls')), #añadí la urls para el sistema de comentarios
+    path('comentarios/', include('comentarios.urls')),
     
 ]
