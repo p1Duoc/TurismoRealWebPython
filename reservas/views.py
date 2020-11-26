@@ -281,7 +281,7 @@ def habitacion_detail(request):
 				Precio: """ + str(precio_total) + """
 				Puede ver su reserva aqui-> http://127.0.0.1:8000/reservar/mis_reservas
 
-				Encantados de poder contar contigo. Hotel BIT 2020
+				Encantados de poder contar contigo. Turismo Real 2020
 				"""
 
 			context = ssl.create_default_context()
