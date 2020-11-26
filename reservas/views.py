@@ -288,7 +288,7 @@ def habitacion_detail(request):
 
 			with smtplib.SMTP_SSL(smtp_server, port, context = context) as server:
 				server.login(sender, password)
-			#	server.sendmail(sender, reciever, message, )
+				server.sendmail(sender, reciever, message, )
 
 			###############################################################
 			#                 FIN ENVIO DE EMAIL AL USUARIO               #
