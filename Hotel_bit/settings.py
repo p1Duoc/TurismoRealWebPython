@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import decouple
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -136,14 +138,19 @@ LOGIN_URL = '/usuario/login'
 
 #Configuración de mail
 
-#from decouple import config
+from decouple import config
 
-EMAIL_HOST = 'smtp.googlemail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = ('onuxchile@gmail.com')
-EMAIL_HOST_PASSWORD = ('Onxprovi234#')
-EMAIL_USE_TLS = True
+#EMAIL_HOST = 'smtp.googlemail.com'
+#EMAIL_PORT = 587
+#EMAIL_HOST_USER = ('onuxchile@gmail.com')
+#EMAIL_HOST_PASSWORD = ('Onxprovi234#')
+#EMAIL_USE_TLS = True
 
+EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='Onxprovi234#')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='onuxchile@gmail.com')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 
 
 

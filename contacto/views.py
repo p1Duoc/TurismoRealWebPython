@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from .forms import ContactoForm
 from newsletters.forms import NewsletterForm
 # Create your views here.
@@ -17,13 +18,15 @@ def contacto(request):
 
             if form.is_valid():
                 form.save()               
-    
+                        
+            return redirect('/thanks/')
     else:
         form = ContactoForm
 
     context = {
-    'form': form,
+        'form': form,
     }
-    return render (request, template, context)
+    return render(request, template, context)
+
 
 

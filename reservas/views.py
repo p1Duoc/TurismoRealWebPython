@@ -262,8 +262,8 @@ def habitacion_detail(request):
 			smtp_server = 'smtp.gmail.com'
 			port = 465
 
-			sender = ''
-			password = ''
+			sender = 'onuxchile@gmail.com'
+			password = 'Onxprovi234#'
 
 			reciever = user1.email
 
@@ -281,14 +281,14 @@ def habitacion_detail(request):
 				Precio: """ + str(precio_total) + """
 				Puede ver su reserva aqui-> http://127.0.0.1:8000/reservar/mis_reservas
 
-				Encantados de poder contar contigo. Hotel BIT 2020
+				Encantados de poder contar contigo. Turismo Real 2020
 				"""
 
 			context = ssl.create_default_context()
 
-			#with smtplib.SMTP_SSL(smtp_server, port, context = context) as server:
-				#server.login(sender, password)
-				#server.sendmail(sender, reciever, message, )
+			with smtplib.SMTP_SSL(smtp_server, port, context = context) as server:
+				server.login(sender, password)
+				server.sendmail(sender, reciever, message, )
 
 			###############################################################
 			#                 FIN ENVIO DE EMAIL AL USUARIO               #

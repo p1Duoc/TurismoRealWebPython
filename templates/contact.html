@@ -2,9 +2,7 @@
 {% load static %}
 
 
-{% block title %}Hotel b_IT - Contacto{% endblock %}
-
-
+{% block title %}TurismoReal- Contacto{% endblock %}
 {% block content %}
     <!-- Breadcrumb Area Start -->
     <div class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/18.jpg' %});">
@@ -60,7 +58,7 @@
                         <div class="single-contact-info">
                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
                             <h4>Email</h4>
-                            <a href="mailto:contacto@hotelbit.com.uy"><span>contacto@turismoreal.cl</span></a>
+                            <a href="mailto:contacto@turismoreal.cl"><span>contacto@turismoreal.cl</span></a>
                         </div>
                     </div>
                 </div>
@@ -82,14 +80,14 @@
                     <!-- Section Heading -->
                     <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
                         <h6>Contacto</h6>
-                        <h2>Dejar un mensaje</h2>
+                        <h2>¿En qué te podemos ayudar?</h2>
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12">
-                    <!-- Form -->
+                    <!-- Form onsubmit="window.open('', 'ventanaForm', '')"  -->
                     <div class="roberto-contact-form">
                         <form action="#" method="post">{% csrf_token %}
                             <div class="row">

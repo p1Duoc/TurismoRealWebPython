@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from . import views
 from users.views import login, registro, logout, ver_perfil
 urlpatterns = [
@@ -40,7 +40,6 @@ urlpatterns = [
     path('Viña_del_Mar/', views.Departamento_viñadelmar), #añadi las url habitacion_vip
     path('Puerto_Varas/', views.Departamento_puertovaras), #añadi las url habitacion_vip
     path('Iquique/', views.Departamento_iquique), #añadi las url habitacion_vip
-    path('Buscar_Fecha/', views.Buscar_fecha), #añadi las url habitacion_vip
     path('login/', login), #añadi las url login
     path('usuario/', include('users.urls')), #añadi las urls que tendrá el sistema de reservas en un path solo 'reservas/'
     path('reservar/', include('reservas.urls')), #añadi las urls que tendrá el sistema de reservas en un path solo 'users/'
