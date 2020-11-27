@@ -183,11 +183,10 @@ def habitacion_detail(request):
 	reserva = Reserva.objects.all()
 	reservas_habitacion = Reservas_habitacion.objects.all()
 	template = 'pago.html'
-	#precios = Habitaciones.Precio
 
 	if request.method == 'POST':
 		#Aquí recogemos los campos del formulario de la reserva de habitacion y lo tratamos
-		precio = 50000
+		precio = 0
 		fecha_entrada = request.POST['fecha_entrada']
 		fecha_entrada = datetime.strptime(fecha_entrada, '%Y-%m-%d')
 		fecha_entrada = fecha_entrada.date()
