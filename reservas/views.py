@@ -53,7 +53,7 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 
 # DESCONTAMOS UNA HABITACION SI LLEGA LA FECHA DE ENTRADA DE LA RESERVA Y LA COLOCAMOS COMO ACTIVA
 
-	reservas_del_dia = Reservas_habitacion.objects.filter(Q(fecha_entrada__lte=hoy) &Q(status_payment='Aprovado') |Q(status_payment='Pendiente'))
+	reservas_del_dia = Reservas_habitacion.objects.filter(Q(fecha_entrada__lte=hoy) &Q(status_payment='Aprobado') |Q(status_payment='Pendiente'))
 
 	habitaciones_ = [] #lista de habitaciones 
 	for i in Habitaciones.objects.all():
@@ -84,6 +84,8 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 
 	fecha_salida_str =  str(request.POST['Fecha_egreso'])
 	fecha_salida = datetime.strptime(fecha_salida_str, '%Y-%m-%d')
+	noches = fecha_salida - fecha_entrada;
+
 
 	#########################################################################################################################################
 
@@ -169,7 +171,8 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 		'fecha_egreso' : fecha_salida,
 		'cantidad_personas' : ocupantes,
 		'fecha_entrada' : fecha_entrada_str,
-		'fecha_salida' : fecha_salida_str
+		'fecha_salida' : fecha_salida_str,
+		'noches' : noches
 
 	}
 	return render(request, template, context)

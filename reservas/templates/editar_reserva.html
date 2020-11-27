@@ -46,12 +46,11 @@
                             <h6>Capacidad: <span>Máximo {{cuarto.capacidad}} personas</span></h6>
                             <h6>Desayuno: <span>SI</span></h6>
                             <h6>Servicios<span>Wifi, Tv, otros ...</span></h6>
-                            <!--<h6>Precio:<span>$ {{ cuarto.reservas_departamentos.Precio  }}</span></h6>-->
                             <h6>Precio:<span>$ {{ cuarto.Precio }} </span></h6>
                             <h6>Garage<span>{{ cuarto.garaje  }}</span></h6>
                             <h6>Ingreso: <span>{{ fecha_ingreso }}</span></h6>
                             <h6>Salida: <span>{{ fecha_egreso }}</span></h6>
-                            <h6>Cantidad de Noches: <span>{{dias_reserva}}</span></h6>
+                            <h6>Cantidad de Noches: <span>{{noches}}</span></h6>
                         </div>
                         <form action="{% url 'habitacion_detail'  %}" method="post"> {% csrf_token %}
                             <input type="text" name="usuario" value="{{request.user.username}}" hidden/>
