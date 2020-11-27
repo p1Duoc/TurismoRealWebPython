@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'contacto',
     'users',
     'comentarios',
+    'rest_framework',
+    'api'
 ]
 
 MIDDLEWARE = [
@@ -153,7 +155,11 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='onuxchile@gmail.com')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 
 
-
+# REST_FRAMEWORK = {
+#   'DEFAULT_PERMISSION_CLASSES': [                     
+#     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+#   ],
+# }
 
 
 

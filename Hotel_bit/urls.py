@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from api import views  as apiviews
 from . import views
 from users.views import login, registro, logout, ver_perfil
 from django.conf.urls.static import static
 from django.conf import settings
+
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+
+router.register('habitaciones', apiviews.HabitacionesViewset)
+
 urlpatterns = [
 
     
@@ -51,5 +59,6 @@ urlpatterns = [
     path('perfil/', ver_perfil),
     path('logout/', logout),
     path('comentarios/', include('comentarios.urls')), #añadí la urls para el sistema de comentarios
+    path('api/v1/', include(router.urls)),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
