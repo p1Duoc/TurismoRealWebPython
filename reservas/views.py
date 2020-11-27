@@ -170,10 +170,8 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 		'cantidad_personas' : ocupantes,
 		'fecha_entrada' : fecha_entrada_str,
 		'fecha_salida' : fecha_salida_str
-				 	
-		
-	}
 
+	}
 	return render(request, template, context)
 
 
@@ -185,7 +183,6 @@ def habitacion_detail(request):
 	reserva = Reserva.objects.all()
 	reservas_habitacion = Reservas_habitacion.objects.all()
 	template = 'pago.html'
-
 
 	if request.method == 'POST':
 		#Aquí recogemos los campos del formulario de la reserva de habitacion y lo tratamos
@@ -201,12 +198,12 @@ def habitacion_detail(request):
 		reserva = datetime.today()
 		tipo_pension = request.POST['pension']
 		precio_pension = 0
-		if tipo_pension == 'completa':
-			precio_pension = 500.00
-		elif tipo_pension == 'media':
-			precio_pension = 250.00
-		elif tipo_pension == 'desayuno':
-			precio_pension = 200.00
+		if tipo_pension == 'Completa':
+			precio_pension = 98000
+		elif tipo_pension == 'Media':
+			precio_pension = 60000
+		elif tipo_pension == 'Desayuno':
+			precio_pension = 30000
 		elif tipo_pension == 'nada':
 			precio_pension = 0.00
 		tipo_alojamiento = Tipo_alojamiento.objects.get(habitacion_tipo_alojamiento=habitacion_detail)
