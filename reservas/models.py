@@ -90,7 +90,7 @@ class Comuna(models.Model):
 
 class Habitacion(models.Model):
 	nombre = models.CharField("nombre habitacion", max_length=50)
-	cantidad_habitaciones = models.IntegerField('cantidad de habitaciones', default=10)
+	cantidad_habitaciones = models.IntegerField('cantidad de habitaciones', default=1)
 	precio = models.IntegerField("precio habitacion")
 	capacidad = models.IntegerField("capacidad de usuarios")
 	disponible = models.BooleanField("esta disponible", default=True)
@@ -204,7 +204,7 @@ class Reservas_habitacion(models.Model):
 
 class CantidadReservas(models.Model):
 	reserva_habitacion = models.ForeignKey('Habitaciones', on_delete=models.CASCADE)
-	limite = models.IntegerField('limite', default=10)
+	limite = models.IntegerField('limite', default=1)
 
 	class Meta:
 		verbose_name = 'Cantidad de Reservas'

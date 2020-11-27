@@ -138,7 +138,7 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 	for i in lista:
 		max_r_hab = CantidadReservas.objects.get(reserva_habitacion=i) # int() máximo posible de reservas por habitacion
 		variable_1 = lista.count(i)	# contamos cuantas reservas hay por habitacion
-		if variable_1 == max_r_hab.limite: # si la cantidad de reservas para esa hab. es igual a su limite se agrega a la lista hab_quitar.
+		if variable_1 > max_r_hab.limite: # si la cantidad de reservas para esa hab. es igual a su limite se agrega a la lista hab_quitar.
 			hab_quitar.append(i) 
 
 		
