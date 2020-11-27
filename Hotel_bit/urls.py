@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from . import views
 from users.views import login, registro, logout, ver_perfil
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
 
     
@@ -50,4 +52,4 @@ urlpatterns = [
     path('logout/', logout),
     path('comentarios/', include('comentarios.urls')), #añadí la urls para el sistema de comentarios
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

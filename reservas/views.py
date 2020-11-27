@@ -422,13 +422,15 @@ def listar_reservas(request):
 	usuario1 = request.user
 	reservas1 = Reservas_habitacion.objects.all()
 	reservas = (reservas1.filter(usuario=usuario1))
+	habitaciones = Habitaciones.objects.all()
 
 
 	template = 'listar_reservas.html'
 	context = {
 
 		'usuario' : usuario1,
-		'reservas' : reservas
+		'reservas' : reservas,
+		'habitaciones' : habitaciones
 	}
 
 	return render(request, template, context)
