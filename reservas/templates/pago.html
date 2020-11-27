@@ -142,9 +142,9 @@
                     <a href="#" class="post-thumbnail"><img src="{% static 'img/bg-img/cancelar_reserva_1.jpg' %}" alt=""></a>
                     <!-- Post Meta -->
                    <div class="post-meta">
-                        <strong><a href="#" class="post-date">{{res.fecha_entrada}}</a></strong>
-                        <a href="#" class="post-date">{{res.fecha_salida}}</a>
-                        <a href="#" class="post-catagory">${{res.precio_total}}</a>
+                        <a class="post-date">{{res.fecha_entrada}}</a>
+                        <a class="post-date">{{res.fecha_salida}}</a>
+                        <a class="post-catagory">${{res.precio_total}}</a>
                     </div>
                     <!-- Post Title -->
                     <form action="{% url 'cancel_res' %}" method="post">{% csrf_token %}

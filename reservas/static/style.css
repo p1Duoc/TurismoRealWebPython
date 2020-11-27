@@ -1378,6 +1378,23 @@ input:focus {
         .single-room-area .room-content .room-feature h6 span {
           color: #2a303b;
           display: block; }
+
+        .single-room-area1 .room-content1 .room-feature1 h6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+        width: 50%;
+        font-weight: 400;
+        color: #2a303b;
+        margin-bottom: 10px; }
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+          .single-room-area1 .room-content1 .room-feature1 h6 {
+            font-size: 14px; } }
+        .single-room-area1 .room-content1 .room-feature1 h6 span {
+          color: #ff8b17;
+          display: block; }
+
     .single-room-area .room-content .view-detail-btn {
       padding: 0;
       font-size: 16px;
