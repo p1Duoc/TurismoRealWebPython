@@ -40,7 +40,7 @@
                 <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms">
                     <!-- Room Thumbnail -->
                     <div class="room-thumbnail">
-                        <img src="../../media/{{ cuarto.image }}" alt="media/{{ cuarto.image}}">
+                        <img src="../../media/habitaciones/{{ cuarto }}.jpg" alt="media/{{ cuarto.image}}">
                     </div>
                     <!-- Room Content -->
                     <div class="room-content">
@@ -51,10 +51,10 @@
                             <h6>Ocupantes: <span>Para {{cuarto.ocupantes}} personas</span></h6>
                             <h6>Reservado: <span>{{ cuarto.reserva_reserva.fecha_reserva }}</span></h6>
                             <h6>Tipo de Pago:<span> {{ cuarto.metodo_de_pago}} </span></h6>
-                            <h6>Pago: <span>{{ cuarto.status_payment  }}</span></h6>
-                            <h6>Precio: <span>$ {{ cuarto.precio_total  }}</span></h6>
-                            <h6>Entrada: <span>{{ cuarto.fecha_entrada }}</span></h6>
-                            <h6>Salida: <span>{{ cuarto.fecha_salida }}</span></h6>
+                            <h6>Pago:<span>{{ cuarto.status_payment  }}</span></h6>
+                            <h6>Precio:<span>$ {{ cuarto.precio_total  }}</span></h6>
+                            <h6>Días Reserva: <span>{{ cuarto.fecha_entrada }}</span>{{ cuarto.fecha_salida }}</h6>
+
                         </div>
                         <form action="{% url 'eliminar_reserva'  %}" method="post"> {% csrf_token %}
                             <input type="number" name="identificador" value="{{ cuarto.identificador }}" hidden>
