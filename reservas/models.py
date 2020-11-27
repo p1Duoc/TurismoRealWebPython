@@ -185,6 +185,7 @@ class Valoraciones(models.Model):
 class Reservas_habitacion(models.Model):
 	fecha_entrada = models.DateField()
 	fecha_salida = models.DateField()
+	noches = models.IntegerField(default=0)
 	ocupantes = models.IntegerField(default=0)
 	reserva_habitacion = models.ForeignKey('Habitaciones', on_delete=models.CASCADE)
 	reserva_reserva = models.ForeignKey('Reserva', on_delete=models.CASCADE)
