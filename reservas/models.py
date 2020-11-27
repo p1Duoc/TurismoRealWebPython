@@ -24,15 +24,15 @@ tipo_alojamiento = (
 )
 
 precio_alojamiento = (
-	(200.000, 200.000),
-	(100.000, 100.000),
-	(300.000, 300.000),
-	(400.000, 400.000),
-	(500.000, 500.000),
-	(600.000, 600.000),
-	(700.000, 700.000),
-	(800.000, 800.000),
-	(900.000, 900.000)
+	(200000, 200000),
+	(100000, 100000),
+	(300000, 300000),
+	(400000, 400000),
+	(500000, 500000),
+	(600000, 600000),
+	(700000, 700000),
+	(800000, 800000),
+	(900000, 900000)
 )
 
 tipo_de_pago = (
@@ -103,7 +103,7 @@ class Habitaciones(models.Model):
 	Dirección_Departamento = models.CharField(max_length=100, blank=True, null=True)
 	Número	= models.IntegerField(default=0, blank=True, null=True)
 	Número_Departamento = models.IntegerField( blank=True, null=True)
-	Precio = models.IntegerField( blank=True, null=True)
+	Precio = models.IntegerField( blank=True, null=True, default=0)
 	Fecha_Compra = models.DateField(default=datetime.date.today)
 	idcomuna = models.ForeignKey(Comuna, on_delete=models.CASCADE,  blank=True, null=True)
 	Descripción = models.CharField(max_length=150,  blank=True, null=True)
