@@ -10,6 +10,8 @@ import ssl
 import smtplib
 from django.http import request
 from django.db.models import Q
+from datetime import datetime, timedelta
+
 
 ###########################################################################################################################################################
 
@@ -85,6 +87,7 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 	fecha_salida_str =  str(request.POST['Fecha_egreso'])
 	fecha_salida = datetime.strptime(fecha_salida_str, '%Y-%m-%d')
 	noches = fecha_salida - fecha_entrada;
+
 
 
 	#########################################################################################################################################
