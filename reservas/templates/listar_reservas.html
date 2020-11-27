@@ -35,10 +35,11 @@
                 <br>
                 <a class="btn roberto-btn mb-50" href=" ../home ">¡ PUEDES RESERVAR AHORA!</a> {% endif %}
                 {% for cuarto in reservas %}
+                {% for h in habitaciones %}
                 <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms">
                     <!-- Room Thumbnail -->
                     <div class="room-thumbnail">
-                        <img src="../../media/habitaciones/{{ cuarto }}.jpg" alt="media/{{ cuarto.image}}">
+                        <img src="../../media/{{ h.image }}" alt="media/{{ h.image}}">
                     </div>
                     <!-- Room Content -->
                     <div class="room-content">
@@ -59,6 +60,7 @@
                         </form>
                     </div>
                 </div>
+                {% endfor %}
                 {% endfor %}
             </div>
         </div>
