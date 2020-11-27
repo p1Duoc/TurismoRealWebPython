@@ -96,12 +96,12 @@
                     <!-- Post Title -->
                     <button action="submmit" class="post-title btn roberto-btn w-80">Webpay</button>
                      <li>
-                        <ul>{{res}}</ul>
-                        <ul>USUARIO {{request.user.username}}</ul>
-                        <ul>Ocupantes {{res.ocupantes}}</ul>
-                        <ul>Precio Total {{res.precio_total}} </ul>
-                        <ul> Dias {{dias}} </ul>
-                    </li>
+                          <strong><ul>{{res}}</ul></strong>
+                            </h3><ul>Usuario: {{request.user.username}}</ul>
+                            <ul>Ocupantes: {{res.ocupantes}}</ul>
+                            <ul>Precio Total: {{res.precio_total}} </ul>
+                            <ul> Dias: {{dias}} </ul>
+                         </li>
                     </p>
                     <a href="index.html" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </div>
@@ -125,12 +125,12 @@
                         <input type="text" name="StatusPayment" value="Pendiente" hidden>
                         <button action="submmit" class="post-title btn roberto-btn w-80">Transferencia</button>
                          <li>
-                        <ul>{{res}}</ul>
-                        <ul>USUARIO {{request.user.username}}</ul>
-                        <ul>Ocupantes {{res.ocupantes}}</ul>
-                        <ul>Precio Total {{res.precio_total}} </ul>
-                        <ul> Dias {{dias}} </ul>
-                    </li>
+                          <strong><ul>{{res}}</ul></strong>
+                            </h3><ul>Usuario: {{request.user.username}}</ul>
+                            <ul>Ocupantes: {{res.ocupantes}}</ul>
+                            <ul>Precio Total: {{res.precio_total}} </ul>
+                            <ul> Dias: {{dias}} </ul>
+                         </li>
                         <a href="#" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                     </form>
                 </div>
@@ -142,7 +142,7 @@
                     <a href="#" class="post-thumbnail"><img src="{% static 'img/bg-img/cancelar_reserva_1.jpg' %}" alt=""></a>
                     <!-- Post Meta -->
                    <div class="post-meta">
-                        <a href="#" class="post-date">{{res.fecha_entrada}}</a>
+                        <strong><a href="#" class="post-date">{{res.fecha_entrada}}</a></strong>
                         <a href="#" class="post-date">{{res.fecha_salida}}</a>
                         <a href="#" class="post-catagory">${{res.precio_total}}</a>
                     </div>
@@ -154,13 +154,13 @@
                         <button action="submit" class="post-title btn roberto-btn w-80">Cancelar reserva</button>
 
                     </form>
-                    <li>
-                        <ul>{{res}}</ul>
-                        <ul>USUARIO {{request.user.username}}</ul>
-                        <ul>Ocupantes {{res.ocupantes}}</ul>
-                        <ul>Precio Total {{res.precio_total}} </ul>
-                        <ul> Dias {{dias}} </ul>
-                    </li>
+                     <li>
+                          <strong><ul>{{res}}</ul></strong>
+                            </h3><ul>Usuario: {{request.user.username}}</ul>
+                            <ul>Ocupantes: {{res.ocupantes}}</ul>
+                            <ul>Precio Total: {{res.precio_total}} </ul>
+                            <ul> Dias: {{dias}} </ul>
+                         </li>
                     <a href="index.html" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
