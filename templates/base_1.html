@@ -58,22 +58,22 @@
                         <div class="top-header-content">
                             <a href="#"><i class="icon_phone"></i> <span>(+569) 7853 0890</span></a>
                             <a href="mailto:contacto@hotelbit.com.uy"><i class="icon_mail"></i> <span>contacto@turismoreal.cl</span></a>
-                            <a href="#"><i class="fa fa-user-circle" aria-hidden="true"></i> 
-                            
+                            <a href="#"><i class="fa fa-user-circle" aria-hidden="true"></i>
+
                             {% if request.user.username %}
-                                
-                                
+
+
                                 <span>Bienvenido, {{ request.user.username.upper }}</span>
-                                
+
                             {% else %}
                                 <span>No has iniciado Sesion</span>
 
-        
+
                             {% endif %}
-                                
-                                
-                            
-                            
+
+
+
+
                             </a>
 
                         </div>
@@ -160,6 +160,42 @@
     <!-- Header Area End -->
 
 
+<div class="hotel-search-form-area mb-100 mt-100">
+        <div class="container-fluid">
+            <div class="hotel-search-form">
+                <form action=" {% url 'editar_reserva' %} " method="post">
+                    <div class="row justify-content-between align-items-end">
+                        <div class="col-6 col-md-2 col-lg-3">
+                            <label for="checkIn">Fecha Ingreso</label>
+                            <input type="date" class="form-control" id="checkIn" name="Fecha_ingreso" required>
+                        </div>
+                        <div class="col-6 col-md-2 col-lg-3">
+                            <label for="checkOut">Fecha Egreso</label>
+                            <input type="date" class="form-control" id="checkOut" name="Fecha_egreso" required>
+                        </div>
+                        <div class="col-4 col-md-3">
+                            <label for="room">Total Personas</label>
+                            <select name="Numero_Personas" id="room" class="form-control">
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                    </select>
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <button type="submit" class="form-control btn roberto-btn w-100">Ver Disponibles</button>
+                        </div>
+                    </div>
+                    {% csrf_token %}
+                </form>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -172,7 +208,7 @@
 
 
     <!-- Call To Action Area Start -->
-    <section class="roberto-cta-area mb-30">
+    <!--<section class="roberto-cta-area mb-30">
         <div class="container">
             <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/1.jpg' %});">
                 <div class="row align-items-center">
@@ -188,7 +224,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
     <!-- Call To Action Area End -->
 
     <!-- Partner Area Start -->

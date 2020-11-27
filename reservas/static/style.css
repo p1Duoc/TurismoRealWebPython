@@ -418,7 +418,7 @@ input:focus {
   line-height: 46px;
   font-size: 16px;
   font-weight: 500;
-  display: inline-block;
+  display: block;
   padding: 0 40px;
   text-align: center;
   text-transform: capitalize;
@@ -433,8 +433,8 @@ input:focus {
     font-weight: 500;
     -webkit-box-shadow: 0 2px 40px 8px rgba(15, 15, 15, 0.15);
     box-shadow: 0 2px 40px 8px rgba(15, 15, 15, 0.15);
-    background-color: #ffffff;
-    color: #8a8a8a; }
+    background-color: #8b8a89;
+    color: #ffffff; }
   .roberto-btn.btn-2 {
     min-width: 180px;
     height: 50px;
@@ -445,6 +445,37 @@ input:focus {
     .roberto-btn.btn-2:focus, .roberto-btn.btn-2:hover {
       color: #ffffff;
       background-color: #ff8c17; }
+
+  .roberto-btn1 {
+  position: relative;
+  z-index: 1;
+  min-width: 150px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  padding: 0 40px;
+  text-align: center;
+  text-transform: capitalize;
+  background-color: #ff8b17;
+  color: #ffffff;
+  border: none;
+  border-radius: 2px;
+  -webkit-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  transition-duration: 500ms; }
+  .roberto-btn1:focus, .roberto-btn1:hover {
+    font-weight: 500;
+    -webkit-box-shadow: 0 2px 40px 8px rgba(15, 15, 15, 0.15);
+    box-shadow: 0 2px 40px 8px rgba(15, 15, 15, 0.15);
+    background-color: #ff8b17;
+    color: #ffffff; }
+
+ .boton_fecha{
+ display:block
+ padding: 20px 40px
+ }
 
 .continue-btn {
   padding: 0;
@@ -544,7 +575,7 @@ input:focus {
         .top-header-area .top-header-content > a span {
           display: none; } }
       .top-header-area .top-header-content > a:hover, .top-header-area .top-header-content > a:focus {
-        color: #afb4bf; }
+        color: #ff8b18; }
     .top-header-area .top-header-content .top-social-area a {
       display: inline-block;
       margin-right: 30px;
@@ -835,7 +866,7 @@ input:focus {
       border-radius: 30px;
       border: none;
       padding: 0 20px;
-      color: #ffffff;
+      color: #8a8a8a;
       font-size: 14px; }
       .single-footer-widget .nl-form input:focus {
         box-shadow: none; }
@@ -2138,7 +2169,7 @@ html .ui-button.ui-state-disabled:active {
     -ms-transform: translateY(-10px);
     transform: translateY(-10px); }
     .single-post-area:hover .post-title, .single-post-area:focus .post-title {
-      color: #ff8b17; }
+      color: #ffffff; }
 
 .single-blog-post {
   position: relative;

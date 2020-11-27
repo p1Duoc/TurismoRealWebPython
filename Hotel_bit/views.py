@@ -68,6 +68,12 @@ def Departamento_iquique(request):
     Newsletter(request)
     return render (request, template, {'form': NewsletterForm,})
 
+def Buscar_fecha(request):
+    template = "base_1.html"
+    Newsletter(request)
+    return render (request, template, {'form': NewsletterForm,})
+
+
 
 
 def registro(request):
