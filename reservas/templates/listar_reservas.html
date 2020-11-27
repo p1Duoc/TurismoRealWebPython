@@ -43,7 +43,7 @@
                     <!-- Room Content -->
                     <div class="room-content">
                         <h2>{{ cuarto }}</h2>
-                        <h4>{{ cuarto.identificador}} <span> N°reserva</span></h4>
+                        <h4><span> N°reserva: </span>{{ cuarto.identificador}} </h4>
                         <div class="room-feature1">
                             <h6>Ocupantes: <span>Para {{cuarto.ocupantes}} personas</span></h6>
                             <h6>Reservado: <span>{{ cuarto.reserva_reserva.fecha_reserva }}</span></h6>
@@ -52,6 +52,7 @@
                             <h6>Precio:<span>$ {{ cuarto.precio_total  }}</span></h6>
                             <h6>Entrada: <span>{{ cuarto.fecha_entrada }}</span></h6>
                             <h6>Salida: <span>{{ cuarto.fecha_salida }}</span></h6>
+                            <h6>Cantidad de Noches: <span>{{ cuarto.noches }}</span></h6>
                         </div>
                         <form action="{% url 'eliminar_reserva'  %}" method="post"> {% csrf_token %}
                             <input type="number" name="identificador" value="{{ cuarto.identificador }}" hidden>
