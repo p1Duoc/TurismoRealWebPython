@@ -31,7 +31,6 @@
             <div class="col-12 col-lg-12">
                 <!-- Single Room Area -->
                 {% for cuarto in habitacion %}
-                
 
                 <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms">
                     <!-- Room Thumbnail -->
@@ -46,12 +45,11 @@
                             <h6>Capacidad: <span>Máximo {{cuarto.capacidad}} personas</span></h6>
                             <h6>Desayuno: <span>SI</span></h6>
                             <h6>Servicios<span>Wifi, Tv, otros ...</span></h6>
-                            <h6>Precio:<span>$ {{ cuarto.Precio }} </span></h6>
+                            <h6>Precio por Noche:<span>$ {{ cuarto.Precio }} </span></h6>
+                            <h6>Cantidad de Noches: <span>{{noches}}</span></h6>
                           <!--  <h6>Garage<span>{{ cuarto.garaje  }}</span></h6>-->
                             <h6>Ingreso: <span>{{ fecha_ingreso }}</span></h6>
                             <h6>Salida: <span>{{ fecha_egreso }}</span></h6>
-                            <h6>Cantidad de Noches: <span>{{noches}}</span></h6>
-                            <h6>Total a Pagar: <span>{{precio_total}}</span></h6>
                         </div>
                         <form action="{% url 'habitacion_detail'  %}" method="post"> {% csrf_token %}
                             <input type="text" name="usuario" value="{{request.user.username}}" hidden/>
@@ -131,3 +129,4 @@
 
 
     {% endblock habitaciones_slide %}
+</div>
