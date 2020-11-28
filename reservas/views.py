@@ -22,6 +22,14 @@ from datetime import datetime, timedelta
 
 ############################################################################################################################################################
 
+def days_b(fecha_entrada, fecha_salida):
+	fecha_entrada1 = datetime.strptime(fecha_entrada, '%Y-%m-%d')
+	fecha_salida1 = datetime.strptime(fecha_salida, '%Y-%m-%d')
+	noches = fecha_salida1 - fecha_entrada1;
+	return abs(noches.days)
+
+
+
 
 def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 
@@ -61,7 +69,6 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 	for i in Habitaciones.objects.all():
 		habitaciones_.append(i)
 	
-	
 	for hab in reservas_del_dia:
 		reservas_=[]
 		for i in reservas_del_dia:
@@ -86,10 +93,8 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 
 	fecha_salida_str =  str(request.POST['Fecha_egreso'])
 	fecha_salida = datetime.strptime(fecha_salida_str, '%Y-%m-%d')
-	noches = fecha_salida - fecha_entrada;
 
-
-
+	noches = days_b(fecha_entrada_str,fecha_salida_str)
 	#########################################################################################################################################
 
 	# Se han establecido 4 tipos posibles de cruces de fechas las cuales se resumen a continacion tomando en cuenta las siguientes variables:
@@ -146,26 +151,19 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 		if variable_1 > max_r_hab.limite: # si la cantidad de reservas para esa hab. es igual a su limite se agrega a la lista hab_quitar.
 			hab_quitar.append(i) 
 
-		
-	
 	lista2 = [] # lista final a mostrar al usuario
 	for i in Habitaciones.objects.filter(capacidad__gte=ocupantes):
 		# Creamos una lista con las habitaciones que coinciden los ocupantes y hay por lo menos 1 habitacion disponible
 		lista2.append(i)
-		
-		
+
 	for i in hab_quitar:
 		if i in lista2:
 			lista2.remove(i) # removemos los elemtos de la lista  en lista 2 (eliminamos las habitaciones reservadas de la lista2)
-	
-	
+
 	if lista:
 	 	lista	# si hay elementos en la lista[reservas hechas en esas fechas] continua, sino lista2 tendra todas las habitacionos solo x filtro de ocupantes y dicponibilidad
 	else:
 	 	lista2 = Habitaciones.objects.filter(capacidad__gte=ocupantes, cantidad__gte=1)
-
-	
-
 
 	template='editar_reserva.html'
 	context={
@@ -175,13 +173,11 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 		'cantidad_personas' : ocupantes,
 		'fecha_entrada' : fecha_entrada_str,
 		'fecha_salida' : fecha_salida_str,
-		'noches' : noches
-
+		'noches' : noches,
 	}
 	return render(request, template, context)
 
-
-def habitacion_detail(request): 
+def habitacion_detail(request):
 	#Función para ver en datalle la habitación seleccionada
 	#Creamos las variables que recogen todas las habitaciones en base de datos, reservas,
 	# y reservas de habitaciones
@@ -190,15 +186,19 @@ def habitacion_detail(request):
 	reservas_habitacion = Reservas_habitacion.objects.all()
 	template = 'pago.html'
 
+	precio = Habitaciones.objects.filter(Descripción=request.POST['nombre_habitacion']).values_list('Precio',flat=True)[0]
+
+
 	if request.method == 'POST':
 		#Aquí recogemos los campos del formulario de la reserva de habitacion y lo tratamos
-		precio = 0
-		fecha_entrada = request.POST['fecha_entrada']
-		fecha_entrada = datetime.strptime(fecha_entrada, '%Y-%m-%d')
+		fecha_entrada1 = request.POST['fecha_entrada']
+		fecha_entrada = datetime.strptime(fecha_entrada1, '%Y-%m-%d')
 		fecha_entrada = fecha_entrada.date()
-		fecha_salida = request.POST['fecha_salida']
-		fecha_salida = datetime.strptime(fecha_salida, '%Y-%m-%d')
+		fecha_salida1 = request.POST['fecha_salida']
+		fecha_salida = datetime.strptime(fecha_salida1, '%Y-%m-%d')
 		fecha_salida = fecha_salida.date()
+		noches = days_b(fecha_entrada1, fecha_salida1)
+		#precio = 90
 		ocupantes = request.POST['ocupantes']
 		habitacion = habitacion_detail
 		reserva = datetime.today()
@@ -217,8 +217,7 @@ def habitacion_detail(request):
 			precio = precio_pension + precio_pension
 		elif tipo_alojamiento.descripcion == 'individual':
 			precio = precio_pension + 100
-		precio_total = precio
-
+		precio_total = precio * noches
 		
 
 		dia1 = timedelta(days=5)
@@ -256,7 +255,6 @@ def habitacion_detail(request):
 			# habitacion_detail.cantidad = actualizar
 			# habitacion_detail.save() 
 			# configuracion de servicio smtp para emails
-
 
 			###############################################################
 			#                  ENVIO DE EMAIL AL USUARIO                  #

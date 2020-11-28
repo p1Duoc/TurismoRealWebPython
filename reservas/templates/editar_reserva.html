@@ -30,7 +30,6 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <!-- Single Room Area -->
-
                 {% for cuarto in habitacion %}
                 
 
@@ -52,6 +51,7 @@
                             <h6>Ingreso: <span>{{ fecha_ingreso }}</span></h6>
                             <h6>Salida: <span>{{ fecha_egreso }}</span></h6>
                             <h6>Cantidad de Noches: <span>{{noches}}</span></h6>
+                            <h6>TotalP: <span>{{cuarto.precio_total}}</span></h6>
                         </div>
                         <form action="{% url 'habitacion_detail'  %}" method="post"> {% csrf_token %}
                             <input type="text" name="usuario" value="{{request.user.username}}" hidden/>
@@ -90,7 +90,7 @@
                             <h6>Garage: <span>{{ cuarto.garage }}</span></h6>
                             <h6>Servicios<span>Wifi, television ...</span></h6>
                             <h6>Camas<span>{{ cuarto.camas  }}</span></h6>
-                            <h6>Precio:<span>$ {{ cuarto.precio_total  }}</span></h6>
+                            <h6>Precio:<span>$ {{ cuarto.Precio  }}</span></h6>
                             <h6>Días Reserva : <span>{{ fecha_ingreso }}</span>{{ fecha_egreso }}</h6>
                             <h6>Días Reserva Reserva : <span>{{ cuarto.fecha_entrada }}</span>{{ cuarto.fecha_salida }}</h6>
 
