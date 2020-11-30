@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 
+
 # Create your models here.
 
 precio_pension = (
@@ -225,5 +226,5 @@ class Reserva_habitacion(models.Model):
 
     def __str__(self):
         return self.Nombre_usuario
-    
-    
+
+

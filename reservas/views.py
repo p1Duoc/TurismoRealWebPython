@@ -22,6 +22,9 @@ from datetime import datetime, timedelta
 
 ############################################################################################################################################################
 
+
+
+
 def days_b(fecha_entrada, fecha_salida):
 	fecha_entrada1 = datetime.strptime(fecha_entrada, '%Y-%m-%d')
 	fecha_salida1 = datetime.strptime(fecha_salida, '%Y-%m-%d')
@@ -149,7 +152,7 @@ def filtrar(request): # FILTRAR & ACTUALIZAR ESTADO DE RESERVAS Y HABITACIONES
 		max_r_hab = CantidadReservas.objects.get(reserva_habitacion=i) # int() máximo posible de reservas por habitacion
 		variable_1 = lista.count(i)	# contamos cuantas reservas hay por habitacion
 		if variable_1 > max_r_hab.limite: # si la cantidad de reservas para esa hab. es igual a su limite se agrega a la lista hab_quitar.
-			hab_quitar.append(i) 
+			hab_quitar.append(i)
 
 	lista2 = [] # lista final a mostrar al usuario
 	for i in Habitaciones.objects.filter(capacidad__gte=ocupantes):
@@ -202,21 +205,21 @@ def habitacion_detail(request):
 		ocupantes = request.POST['ocupantes']
 		habitacion = habitacion_detail
 		reserva = datetime.today()
-		tipo_pension = request.POST['pension']
-		precio_pension = 0
-		if tipo_pension == 'Completa':
-			precio_pension = 98000
-		elif tipo_pension == 'Media':
-			precio_pension = 60000
-		elif tipo_pension == 'Desayuno':
-			precio_pension = 30000
-		elif tipo_pension == 'nada':
-			precio_pension = 0.00
-		tipo_alojamiento = Tipo_alojamiento.objects.get(habitacion_tipo_alojamiento=habitacion_detail)
-		if tipo_alojamiento.descripcion == 'doble':
-			precio = precio_pension + precio_pension
-		elif tipo_alojamiento.descripcion == 'individual':
-			precio = precio_pension + 100
+		#tipo_pension = request.POST['pension']
+		#precio_pension = 0
+		#if tipo_pension == 'Completa':
+			#precio_pension = 98000
+		#elif tipo_pension == 'Media':
+			#precio_pension = 60000
+		#elif tipo_pension == 'Desayuno':
+			#precio_pension = 30000
+		#elif tipo_pension == 'nada':
+			#precio_pension = 0.00
+		#tipo_alojamiento = Tipo_alojamiento.objects.get(habitacion_tipo_alojamiento=habitacion_detail)
+		#if tipo_alojamiento.descripcion == 'doble':
+			#precio = precio_pension + precio_pension
+		#elif tipo_alojamiento.descripcion == 'individual':
+			#precio = precio_pension + 100
 		precio_total = precio * noches
 		
 
@@ -249,7 +252,7 @@ def habitacion_detail(request):
 				ocupantes=ocupantes,
 				reserva_habitacion=habitacion,
 				reserva_reserva=reserva_reserva,
-				precio_total=(int(precio_total)*int(ocupantes)),
+				precio_total=(int(precio_total)),
 				identificador = identificador)
 			# actualizar = habitacion_detail.cantidad -1
 			# habitacion_detail.cantidad = actualizar
