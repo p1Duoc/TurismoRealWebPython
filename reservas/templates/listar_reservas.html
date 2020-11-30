@@ -35,12 +35,15 @@
                 <br>
                 <a class="btn roberto-btn mb-50" href=" ../Buscar_Fecha ">¡ PUEDES RESERVAR AHORA!</a> {% endif %}
                 {% for cuarto in reservas %}
-                {% for h in habitaciones %}
                 <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms">
                     <!-- Room Thumbnail -->
+                    {% for h in habitaciones %}
+                    {% if h.id == cuarto.reserva_habitacion_id %} 
                     <div class="room-thumbnail">
-                        <img src="../../media/{{ h.image }}" alt="media/{{ h.image}}">
+                        <img src="../../media/{{ h.image }}" alt="{{ h.image}}">
                     </div>
+                    {% endif%}  
+                    {% endfor %}
                     <!-- Room Content -->
                     <div class="room-content">
                         <h2>{{ cuarto }}</h2>
@@ -61,7 +64,6 @@
                         </form>
                     </div>
                 </div>
-                {% endfor %}
                 {% endfor %}
             </div>
         </div>
