@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {%block title%} TURISMO REAL | Editar Reserva{% endblock title%} {% block nombre_usuario %} {% if user.is_autenticate %}
 <span>hola username</span> {% else %}
+
 <span>No has iniciado sesión</span> {% endif %} {% endblock nombre_usuario %} {% block content %}
 <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(../static/img/bg-img/16.jpg);">
     <div class="container h-100">
@@ -30,9 +31,7 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <!-- Single Room Area -->
-
                 {% for cuarto in habitacion %}
-                
 
                 <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms">
                     <!-- Room Thumbnail -->
@@ -42,16 +41,16 @@
                     <!-- Room Content -->
                     <div class="room-content">
                         <h2>{{ cuarto }}</h2>
-                        <h4><span> N°:</span>{{ cuarto.Número_Departamento}}</h4>
+                        <!--<h4><span> N°:</span>{{ cuarto.Número_Departamento}}</h4>-->
                         <div class="room-feature">
                             <h6>Capacidad: <span>Máximo {{cuarto.capacidad}} personas</span></h6>
                             <h6>Desayuno: <span>SI</span></h6>
                             <h6>Servicios<span>Wifi, Tv, otros ...</span></h6>
-                            <h6>Precio:<span>$ {{ cuarto.Precio }} </span></h6>
-                            <h6>Garage<span>{{ cuarto.garaje  }}</span></h6>
+                            <h6>Precio por Noche:<span>$ {{ cuarto.Precio }} </span></h6>
+                            <h6>Cantidad de Noches: <span>{{noches}}</span></h6>
+                          <!--  <h6>Garage<span>{{ cuarto.garaje  }}</span></h6>-->
                             <h6>Ingreso: <span>{{ fecha_ingreso }}</span></h6>
                             <h6>Salida: <span>{{ fecha_egreso }}</span></h6>
-                            <h6>Cantidad de Noches: <span>{{noches}}</span></h6>
                         </div>
                         <form action="{% url 'habitacion_detail'  %}" method="post"> {% csrf_token %}
                             <input type="text" name="usuario" value="{{request.user.username}}" hidden/>
@@ -60,12 +59,12 @@
                             <input type="text" name="fecha_entrada" value="{{ fecha_entrada }}" hidden/>
                             <input type="text" name="fecha_salida" value="{{ fecha_salida }}" hidden/>
                             <input type="number" name="ocupantes" value={{cantidad_personas}} hidden/>
-                            <h6>Tipo Pension <span></span></h6>
+                            <!--<h6>Tipo Pension <span></span></h6>
                             <select name="pension" class="form-control">
                             <option value="completa">Completa</option>
                             <option value="media">Media</option>
                             <option value="desayuno">Desayuno</option>
-                            <option value="nada">Nada</option>
+                            <option value="nada">Nada</option>-->
                             </select>
                             <button class="btn roberto-btn mb-50"> Reservar </button>
                         </form>
@@ -84,15 +83,16 @@
                     <!-- Room Content -->
                     <div class="room-content">
                         <h2>{{ cuarto }}</h2>
-                        <h4>{{ cuarto.num_habitacion}} <span> N°</span></h4>
+                        <!--<h4>{{ cuarto.num_habitacion}} <span> N°</span></h4>-->
                         <div class="room-feature">
                             <h6>Capacidad: <span>Max {{cuarto.capacidad}} personas</span></h6>
                             <h6>Garage: <span>{{ cuarto.garage }}</span></h6>
                             <h6>Servicios<span>Wifi, television ...</span></h6>
                             <h6>Camas<span>{{ cuarto.camas  }}</span></h6>
-                            <h6>Precio:<span>$ {{ cuarto.precio_total  }}</span></h6>
-                            <h6>Días Reserva : <span>{{ fecha_ingreso }}</span>{{ fecha_egreso }}</h6>
-                            <h6>Días Reserva Reserva : <span>{{ cuarto.fecha_entrada }}</span>{{ cuarto.fecha_salida }}</h6>
+                            <h6>Precio:<span>$ {{ cuarto.Precio  }}</span></h6>
+                            <h6>Fecha de Ingreso : <span>{{ fecha_ingreso }}</span></h6>
+                            <h6>Fecha de Salida : <span>{{ fecha_egreso }}</span></h6>
+                            <h6>Días Reserva  : <span>{{ cuarto.fecha_entrada }}</span>{{ cuarto.fecha_salida }}</h6>
 
 
                         </div>
@@ -103,12 +103,12 @@
                             <input type="text" name="fecha_entrada" value="{{ fecha_entrada }}" hidden/>
                             <input type="text" name="fecha_salida" value="{{ fecha_salida }}" hidden/>
                             <input type="number" name="ocupantes" value="{{cantidad_personas}}" hidden/>
-                            <h6>Tipo Pension <span></span></h6>
+                            <!--<h6>Tipo Pension <span></span></h6>
                             <select name="pension" class="form-control">
                             <option value="completa">Completa</option>
                             <option value="media">Media</option>
                             <option value="desayuno">Desayuno</option>
-                            <option value="nada">Nada</option>
+                            <option value="nada">Nada</option>-->
                             </select>
 
 
@@ -130,3 +130,4 @@
 
 
     {% endblock habitaciones_slide %}
+</div>

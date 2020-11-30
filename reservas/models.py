@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 
+
 # Create your models here.
 
 precio_pension = (
@@ -24,15 +25,15 @@ tipo_alojamiento = (
 )
 
 precio_alojamiento = (
-	(200000, 200000),
-	(100000, 100000),
-	(300000, 300000),
-	(400000, 400000),
-	(500000, 500000),
-	(600000, 600000),
-	(700000, 700000),
-	(800000, 800000),
-	(900000, 900000)
+	(20.00, 20.00),
+	(10.00, 10.00),
+	(30.00, 30.00),
+	(40.00, 40.00),
+	(50.00, 50.00),
+	(60.00, 60.00),
+	(70.00, 70.00),
+	(80.00, 80.00),
+	(90.00, 90.00)
 )
 
 tipo_de_pago = (
@@ -225,5 +226,5 @@ class Reserva_habitacion(models.Model):
 
     def __str__(self):
         return self.Nombre_usuario
-    
-    
+
+
