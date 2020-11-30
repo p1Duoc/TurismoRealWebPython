@@ -36,7 +36,7 @@ xhtml2pdf==0.2.3
 XlsxWriter==1.2.8
 zope.event==4.5.0
 zope.interface==5.2.0
-decouple
+python-decouple
 python-decouple==3.3
 djangorestframework
 markdown
