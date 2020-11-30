@@ -4,4 +4,4 @@ from rest_framework import serializers
 class HabitacionesSerializers(serializers.ModelSerializer):
     class Meta:
         model = Habitaciones
-        fields = '__all__'
+        fields = "__all__"
