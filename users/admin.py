@@ -13,7 +13,7 @@ class EmployeeInline(admin.StackedInline):
     model = Usuario_Extension
     can_delete = False
     verbose_name_plural = 'Detalles Usuarios'
-S    
+ 
 # Define a new User admin
 class UserAdmin(BaseUserAdmin):
     inlines = (EmployeeInline,)
