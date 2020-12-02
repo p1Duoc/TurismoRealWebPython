@@ -7,22 +7,25 @@ from django.contrib.auth.models import Group
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile
-from .forms import CustomUserForm
+from .models import Usuario_Extension, Profile
+from .forms import CustomUserForm, UsuarioExtensionForm
 from .decorators import usuariologeado
 
 @usuariologeado
 def registro(request):
     form = CustomUserForm()
+    form1 = UsuarioExtensionForm()
     if request.method == 'POST':
         form = CustomUserForm(request.POST)
+        ue_form = UsuarioExtensionForm(request.POST)
         if form.is_valid():
             user = form.save()
+            Usuario_Extension(user_id = user.id, rut=request.POST.get('rut', None), dv=request.POST.get('dv', None)).save()
             #Los usuarios registrados quedan en el grupo usuariocomun
             group = Group.objects.get(name='dc')
             user.groups.add(group)
             Profile.objects.create(
-                user=user
+                user=user            
             )
 
 
