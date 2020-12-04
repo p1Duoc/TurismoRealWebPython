@@ -81,6 +81,7 @@ class Precio_pension(models.Model):
 class Comuna(models.Model):
 	Comuna = models.CharField(max_length=100)
 	Ciudad = models.CharField(max_length=100)
+	idCo = models.IntegerField(default=0)
 
 	def __str__(self):
 		return self.Comuna
