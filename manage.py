@@ -3,9 +3,9 @@
 import os
 import sys
 import cx_Oracle
-#cx_Oracle.init_oracle_client(lib_dir=r"C:\Users\CBOCAZ\Downloads\instantclient_19_8")
+cx_Oracle.init_oracle_client(lib_dir=r"C:\Users\CBOCAZ\Downloads\instantclient_19_8")
 #cx_Oracle.init_oracle_client(lib_dir="/Users/oscar/instantclient_19_8")
-cx_Oracle.init_oracle_client(lib_dir=r"C:\Users\Javierdr01\Documents\django\instantclient_19_6")
+#cx_Oracle.init_oracle_client(lib_dir=r"C:\Users\Javierdr01\Documents\django\instantclient_19_6")
 
 
 def main():

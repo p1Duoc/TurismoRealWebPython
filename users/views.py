@@ -56,7 +56,7 @@ def login(request):
 
 def logout(request):
     do_logout(request)
-    return redirect('/')
+    return redirect('/login')
 
 @login_required(login_url='login')
 def ver_perfil(request):

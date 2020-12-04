@@ -21,8 +21,9 @@ from . import views
 from users.views import login, registro, logout, ver_perfil
 from django.conf.urls.static import static
 from django.conf import settings 
-
 from rest_framework import routers
+from django.contrib.auth import views as auth_views
+
 
 router = routers.DefaultRouter()
 
@@ -63,6 +64,8 @@ urlpatterns = [
     path('api/v1/', include(router.urls)),
     path('api/v1/auth/',   include('rest_auth.urls')),
     path('api/v1/auth/registration/',   include('rest_auth.registration.urls')),
+    path('', include('django.contrib.auth.urls')),
+    
     # url(r'^api/v2/habitaciones$', apiviews.habitaciones_list),
     # url(r'^api/v2/habitaciones/(?P<pk>[0-9]+)$', apiviews.habitaciones_detail),
     # url(r'^api/v2/habitaciones/departamento$', apiviews.habitaciones_list_p)
